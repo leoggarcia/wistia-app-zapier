@@ -2,6 +2,10 @@
 const perform = async (z, bundle) => {
     const response = await z.request({
         url: 'https://api.wistia.com/v1/medias.json',
+        params: {
+            sort_by: 'created',
+            sort_direction: 'desc',
+        },
     });
     // this should return an array of objects
     return response.data;
