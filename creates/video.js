@@ -1,26 +1,49 @@
 const perform = async (z, bundle) => {
+    // FOR THIS REQUEST THE BODY SHOULD BE FORM DATA NOT JSON
+    const formBody = new URLSearchParams({
+        name: bundle.inputData.name,
+        description: bundle.inputData.description,
+        url: bundle.inputData.url,
+        project_id: bundle.inputData.project_id,
+    }).toString();
+
     const response = await z.request({
-        url: 'https://api.wistia.com/v1/medias.json',
-        params: {
-            sort_by: 'created',
-            sort_direction: 'desc',
+        method: 'POST',
+        url: 'https://upload.wistia.com/',
+
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
+        body: formBody,
     });
+
     return response.data;
 };
 
 module.exports = {
-    key: 'video_uploaded',
-    noun: 'Video_uploaded',
+    key: 'video',
+    noun: 'Video',
 
     display: {
-        label: 'New Video_uploaded',
-        description: 'Triggers when a new video is uploaded.',
+        label: 'Upload Video',
+        description: 'Upload a video from a URL.',
     },
 
     operation: {
         perform,
-        inputFields: [],
+		inputFields: [
+            { key: 'name', required: true },
+            { key: 'description', required: true },
+            { key: 'url', required: true },
+            {
+                key: 'project_id',
+                label: 'Project (Folder)',
+                dynamic: 'project.id.name',
+                required: false,
+                helpText:
+                    'Select the Wistia project (folder) where the video will be uploaded',
+            },
+        ],
         sample: {
             id: 11111111,
             hashed_id: 'chg30c6446',
@@ -79,7 +102,6 @@ module.exports = {
                 name: 'Test foler',
             },
         },
-
         outputFields: [
         ],
     },

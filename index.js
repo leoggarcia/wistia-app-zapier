@@ -1,5 +1,9 @@
 const getVideoUploaded = require('./triggers/video_uploaded');
 
+const createVideo = require("./creates/video");
+
+const projectResource = require("./resources/project");
+
 const addApiKeyToHeader = (request, z, bundle) => {
     request.headers['Authorization'] =  `Bearer ${bundle.authData.apiToken}`;
     return request;
@@ -20,9 +24,13 @@ module.exports = {
     searches: {},
 
     // If you want your creates to show up, you better include it here!
-    creates: {},
+    creates: {
+        [createVideo.key]: createVideo
+    },
 
-    resources: {},
+    resources: {
+        [projectResource.key]: projectResource
+    },
 
     authentication: {
         type: 'custom',
