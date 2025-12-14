@@ -37,11 +37,13 @@ describe('resources.video.list', () => {
     expect(results).toHaveLength(2);
 
     expect(results[0]).toEqual({
+      id: 'xxxx0x0xx1',
       hashed_id: "xxxx0x0xx1",
       name: 'First video',
     });
 
     expect(results[1]).toEqual({
+      id: 'xxxx0x0xx2',
       hashed_id: "xxxx0x0xx2",
       name: 'Second video',
     });
