@@ -50,21 +50,27 @@ module.exports = {
                 key: 'apiToken',
                 type: 'string',
                 label: 'Wistia API Token',
+                required: true,
                 helpText:
-                    'Your Wistia API token can be found by logging into your Wistia account and navigating to Account > Settings > API Access. You can use your Master Token or create a custom token with appropriate permissions. Keep your token secret! More info: https://wistia.com/support/integrations/api#api_tokens',
+                    'Your Wistia API token can be found by logging into your Wistia account and navigating to Account > Settings > API Access.',
+            },
+            {
+                key: 'accountName',
+                type: 'string',
+                label: 'Account Name',
+                computed: true,
             },
         ],
         test: async (z, bundle) => {
-            const params = {
-                url: 'https://api.wistia.com/v1/medias.json',
-            };
+            const response = await z.request({
+                url: 'https://api.wistia.com/v1/account',
+            });
 
-            const response = await z.request(params);
-            // this should return an array of objects
-            return response.data;
+            return {
+                accountName: response.data.name,
+            };
         },
-        connectionLabel:
-            'Wistia (Token ending in {{bundle.authData.apiToken.slice(-4)}})',
+        connectionLabel: 'Wistia – {{bundle.authData.accountName}}',
     },
 
     beforeRequest: [addApiKeyToHeader],
