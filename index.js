@@ -15,6 +15,11 @@ const addApiKeyToHeader = (request, z, bundle) => {
     return request;
 };
 
+const test = (z, bundle) =>
+    z.request({
+        url: 'https://api.wistia.com/v1/account',
+    });
+
 module.exports = {
     // This is just shorthand to reference the installed dependencies you have.
     // Zapier will need to know these before we can upload.
@@ -52,25 +57,11 @@ module.exports = {
                 label: 'Wistia API Token',
                 required: true,
                 helpText:
-                    'Your Wistia API token can be found by logging into your Wistia account and navigating to Account > Settings > API Access.',
-            },
-            {
-                key: 'accountName',
-                type: 'string',
-                label: 'Account Name',
-                computed: true,
+                    'Your Wistia API token can be found by logging into your Wistia account and navigating to Account > Settings > API Access. You can use your Master Token or create a custom token with appropriate permissions. Keep your token secret! More info: https://wistia.com/support/integrations/api#api_tokens',
             },
         ],
-        test: async (z, bundle) => {
-            const response = await z.request({
-                url: 'https://api.wistia.com/v1/account',
-            });
-
-            return {
-                accountName: response.data.name,
-            };
-        },
-        connectionLabel: 'Wistia – {{accountName}}',
+        test: test,
+        connectionLabel: 'Wistia – {{json.name}}',
     },
 
     beforeRequest: [addApiKeyToHeader],
