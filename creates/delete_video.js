@@ -14,16 +14,22 @@ module.exports = {
     noun: 'video',
 
     display: {
-        label: 'Delete video',
+        label: 'Delete Video',
         description: 'Deletes a video',
     },
 
     operation: {
         perform,
         inputFields: [
-            { key: 'mediaHashedId', label: 'Media hashed id', required: false },
+            {
+                key: 'mediaHashedId',
+                label: 'Video',
+                required: true,
+                dynamic: 'video.hashed_id.name',
+                helpText: 'Select the video you want to update',
+            },
         ],
-
+        cleanInputData: false,
         sample: {
             id: 11111111,
             hashed_id: 'xxx00x0000',

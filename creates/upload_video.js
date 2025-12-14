@@ -44,6 +44,7 @@ module.exports = {
                     'Select the Wistia project (folder) where the video will be uploaded',
             },
         ],
+        cleanInputData: false,
         sample: {
             id: 11111111,
             hashed_id: 'xxx00x0000',

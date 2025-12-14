@@ -14,13 +14,14 @@ module.exports = {
     noun: 'Video',
 
     display: {
-        label: 'New video uploaded',
+        label: 'New Video Uploaded',
         description: 'Triggers when a new video is uploaded.',
     },
 
     operation: {
         perform,
         inputFields: [],
+        cleanInputData: false,
         sample: {
             id: 11111111,
             hashed_id: 'xxx00x0000',

@@ -1,22 +1,22 @@
 const performList = async (z, bundle) => {
     const response = await z.request({
-        url: 'https://api.wistia.com/v1/projects.json',
+        url: 'https://api.wistia.com/v1/medias.json',
     });
 
-    return response.data.map((project) => ({
-        id: project.id,
-        name: project.name,
+    return response.data.map((video) => ({
+        id: video.id,
+        name: video.name,
     }));
 };
 
 module.exports = {
-    key: 'project',
-    noun: 'Project',
+    key: 'video',
+    noun: 'Video',
 
     list: {
         display: {
-            label: 'New Project',
-            description: 'Triggers when - Lists the projects.',
+            label: 'New Video',
+            description: 'Triggers when - Lists the videos.',
         },
         operation: {
             perform: performList,
@@ -27,7 +27,7 @@ module.exports = {
 
     sample: {
         id: "11111111",
-        name: "Your folder",
+        name: "Your video",
     },
 
     outputFields: [

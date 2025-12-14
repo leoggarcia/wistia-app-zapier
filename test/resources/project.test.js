@@ -24,7 +24,7 @@ describe('resources.project.list', () => {
 
     const results = await appTester(perform, bundle);
 
-    // 🔍 Request assertions
+    // 🔍 HTTP assertions
     expect(requestMock).toHaveBeenCalledTimes(1);
 
     expect(requestMock).toHaveBeenCalledWith(
@@ -33,7 +33,7 @@ describe('resources.project.list', () => {
       })
     );
 
-    // ✅ Resultado
+    // ✅ Result assertions
     expect(results).toHaveLength(2);
 
     expect(results[0]).toEqual({

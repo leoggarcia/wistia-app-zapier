@@ -26,7 +26,13 @@ module.exports = {
     operation: {
         perform,
         inputFields: [
-            { key: 'mediaHashedId', label: "Media hashed id", required: true },
+            {
+                key: 'mediaHashedId',
+                label: 'Video',
+                required: true,
+                dynamic: 'video.hashed_id.name',
+                helpText: 'Select the video you want to update',
+            },
             { key: 'name', required: false },
             { key: 'description', required: false },
             {
@@ -38,6 +44,7 @@ module.exports = {
                     'Select the Wistia project (folder) where the video will be uploaded',
             },
         ],
+        cleanInputData: false,
         sample: {
             id: 11111111,
             hashed_id: 'xxx00x0000',
@@ -58,7 +65,6 @@ module.exports = {
             tags: [],
         },
 
-        outputFields: [
-        ],
+        outputFields: [],
     },
 };

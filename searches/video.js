@@ -26,6 +26,7 @@ module.exports = {
                 helpText: 'Find the Video with this name.',
             },
         ],
+		cleanInputData: false,
         sample: {
             id: 11111111,
             hashed_id: 'xxx00x0000',
