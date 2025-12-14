@@ -42,11 +42,12 @@ Several AI tools were leveraged during the development of this project to assist
 
 ### ChatGPT
 
--   **How it was applied**: Used for brainstorming initial ideas for triggers and actions, and for generating boilerplate code for tests.
+-   **How it was applied**: Used for brainstorming initial ideas for triggers and actions, and for generating boilerplate code for tests. It also helped clarify how to use variables within the `connectionLabel` to improve authentication description.
 
 -   **Example Prompts**:
     -   *"What are some common Zapier triggers and actions for a video platform like Wistia?"*
     -   *"Generate a test file using the Zapier testing framework for a 'create' action that uploads a video from a URL."*
+    -   *"How can I dynamically set the `connectionLabel` in Zapier authentication to display user-specific information?"*
 
 ## How to Run the Project
 
