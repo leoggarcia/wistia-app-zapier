@@ -1,13 +1,14 @@
 const getVideoUploaded = require('./triggers/video_uploaded');
 
-const createVideo = require("./creates/upload_video");
+const createVideo = require('./creates/upload_video');
+const updateVideo = require('./creates/update_video');
 
-const projectResource = require("./resources/project");
+const projectResource = require('./resources/project');
 
-const findVideo = require("./searches/video");
+const findVideo = require('./searches/video');
 
 const addApiKeyToHeader = (request, z, bundle) => {
-    request.headers['Authorization'] =  `Bearer ${bundle.authData.apiToken}`;
+    request.headers['Authorization'] = `Bearer ${bundle.authData.apiToken}`;
     return request;
 };
 
@@ -24,16 +25,17 @@ module.exports = {
 
     // If you want your searches to show up, you better include it here!
     searches: {
-        [findVideo.key]: findVideo
+        [findVideo.key]: findVideo,
     },
 
     // If you want your creates to show up, you better include it here!
     creates: {
-        [createVideo.key]: createVideo
+        [createVideo.key]: createVideo,
+        [updateVideo.key]: updateVideo,
     },
 
     resources: {
-        [projectResource.key]: projectResource
+        [projectResource.key]: projectResource,
     },
 
     authentication: {
