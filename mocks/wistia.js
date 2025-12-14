@@ -37,53 +37,53 @@ module.exports.projectListResponse = {
 };
 
 module.exports.deleteVideoResponse = {
-  data: {
-    id: 11111111,
-    status: 'deleted',
-  },
+    data: {
+        id: 11111111,
+        status: 'deleted',
+    },
 };
 
 module.exports.searchVideoResponse = {
-  data: {
     data: {
-      medias: [
-        {
-          id: 11111111,
-          name: 'Video name',
-          hashed_id: 'xxx00x0000',
-          status: 'ready',
+        data: {
+            medias: [
+                {
+                    id: 11111111,
+                    name: 'Video name',
+                    hashed_id: 'xxx00x0000',
+                    status: 'ready',
+                },
+            ],
         },
-      ],
     },
-  },
 };
 
 module.exports.projectListResponse = {
-  data: [
-    {
-      id: 10288462,
-      name: 'Test folder',
-      public: true,
-    },
-    {
-      id: 20456789,
-      name: 'Another project',
-      public: false,
-    },
-  ],
+    data: [
+        {
+            id: 10288462,
+            name: 'Test folder',
+            public: true,
+        },
+        {
+            id: 20456789,
+            name: 'Another project',
+            public: false,
+        },
+    ],
 };
 
 module.exports.videoListResponse = {
-  data: [
-    {
-      id: 11111111,
-      name: 'First video',
-      status: 'ready',
-    },
-    {
-      id: 22222222,
-      name: 'Second video',
-      status: 'processing',
-    },
-  ],
+    data: [
+        {
+            hashed_id: 'xxxx0x0xx1',
+            name: 'First video',
+            status: 'ready',
+        },
+        {
+            hashed_id: 'xxxx0x0xx2',
+            name: 'Second video',
+            status: 'processing',
+        },
+    ],
 };

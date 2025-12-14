@@ -5,7 +5,7 @@ const { videoListResponse } = require('../../mocks/wistia');
 const appTester = zapier.createAppTester(App);
 
 describe('resources.video.list', () => {
-  it('lists videos and maps id and name correctly', async () => {
+  it('lists videos and maps hashed_id and name correctly', async () => {
     const bundle = {
       authData: {
         api_key: 'test-key',
@@ -37,12 +37,12 @@ describe('resources.video.list', () => {
     expect(results).toHaveLength(2);
 
     expect(results[0]).toEqual({
-      id: 11111111,
+      hashed_id: "xxxx0x0xx1",
       name: 'First video',
     });
 
     expect(results[1]).toEqual({
-      id: 22222222,
+      hashed_id: "xxxx0x0xx2",
       name: 'Second video',
     });
   });

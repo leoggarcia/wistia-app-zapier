@@ -4,7 +4,7 @@ const performList = async (z, bundle) => {
     });
 
     return response.data.map((video) => ({
-        id: video.id,
+        hashed_id: video.hashed_id,
         name: video.name,
     }));
 };
@@ -26,12 +26,12 @@ module.exports = {
     },
 
     sample: {
-        id: "11111111",
+        hashed_id: "xxxx0x0xx0",
         name: "Your video",
     },
 
     outputFields: [
-        { key: 'id', label: 'ID' },
+        { key: 'hashed_id', label: 'ID' },
         { key: 'name', label: 'Name' },
     ],
 };
