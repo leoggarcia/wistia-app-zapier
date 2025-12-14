@@ -25,7 +25,7 @@ module.exports = {
     noun: 'Video',
 
     display: {
-        label: 'Create Video',
+        label: 'Update Video',
         description: 'Update video metadata',
     },
 
