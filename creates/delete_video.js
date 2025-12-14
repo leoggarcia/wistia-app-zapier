@@ -3,41 +3,27 @@ const perform = async (z, bundle) => {
         'https://api.wistia.com/v1/medias/' + bundle.inputData.mediaHashedId;
 
     const response = await z.request({
-        method: 'PUT',
+        method: 'DELETE',
         url: url,
-        body: {
-            name: bundle.inputData.name,
-            description: bundle.inputData.description,
-            project_id: bundle.inputData.project_id,
-        },
     });
     return response.data;
 };
 
 module.exports = {
-    key: 'update_video',
-    noun: 'Video',
+    key: 'delete_video',
+    noun: 'video',
 
     display: {
-        label: 'Update Video',
-        description: 'Update video metadata',
+        label: 'Delete video',
+        description: 'Deletes a video',
     },
 
     operation: {
         perform,
         inputFields: [
-            { key: 'mediaHashedId', label: "Media hashed id", required: true },
-            { key: 'name', required: false },
-            { key: 'description', required: false },
-            {
-                key: 'project_id',
-                label: 'Project (Folder)',
-                dynamic: 'project.id.name',
-                required: false,
-                helpText:
-                    'Select the Wistia project (folder) where the video will be uploaded',
-            },
+            { key: 'mediaHashedId', label: 'Media hashed id', required: false },
         ],
+
         sample: {
             id: 11111111,
             hashed_id: 'xxx00x0000',
@@ -47,7 +33,7 @@ module.exports = {
             name: 'Video name',
             duration: 11.818,
             created: '2025-12-13T19:43:05+00:00',
-            updated: '2025-12-14T17:13:00+00:00',
+            updated: '2025-12-14T17:21:08+00:00',
             description: '',
             status: 'ready',
             thumbnail: {
@@ -55,10 +41,7 @@ module.exports = {
                 width: 200,
                 height: 120,
             },
-            tags: [],
         },
-
-        outputFields: [
-        ],
+        outputFields: [],
     },
 };

@@ -2,10 +2,12 @@ const getVideoUploaded = require('./triggers/video_uploaded');
 
 const createVideo = require('./creates/upload_video');
 const updateVideo = require('./creates/update_video');
+const deleteVideo = require("./creates/delete_video");
 
 const projectResource = require('./resources/project');
 
 const findVideo = require('./searches/video');
+
 
 const addApiKeyToHeader = (request, z, bundle) => {
     request.headers['Authorization'] = `Bearer ${bundle.authData.apiToken}`;
@@ -32,6 +34,7 @@ module.exports = {
     creates: {
         [createVideo.key]: createVideo,
         [updateVideo.key]: updateVideo,
+        [deleteVideo.key]: deleteVideo
     },
 
     resources: {
