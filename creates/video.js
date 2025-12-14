@@ -46,7 +46,7 @@ module.exports = {
         ],
         sample: {
             id: 11111111,
-            hashed_id: 'chg30c6446',
+            hashed_id: 'xxx00x0000',
             progress: 0.5833333333333334,
             type: 'Video',
             archived: false,
@@ -98,7 +98,7 @@ module.exports = {
             ],
             project: {
                 id: 10288462,
-                hashed_id: 'c8133zq4uz',
+                hashed_id: 'x0000xx0xx',
                 name: 'Test foler',
             },
         },

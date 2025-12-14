@@ -4,6 +4,8 @@ const createVideo = require("./creates/video");
 
 const projectResource = require("./resources/project");
 
+const findVideo = require("./searches/video");
+
 const addApiKeyToHeader = (request, z, bundle) => {
     request.headers['Authorization'] =  `Bearer ${bundle.authData.apiToken}`;
     return request;
@@ -21,7 +23,9 @@ module.exports = {
     },
 
     // If you want your searches to show up, you better include it here!
-    searches: {},
+    searches: {
+        [findVideo.key]: findVideo
+    },
 
     // If you want your creates to show up, you better include it here!
     creates: {
