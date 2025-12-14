@@ -70,7 +70,7 @@ module.exports = {
                 accountName: response.data.name,
             };
         },
-        connectionLabel: 'Wistia – {{bundle.authData.accountName}}',
+        connectionLabel: 'Wistia – {{accountName}}',
     },
 
     beforeRequest: [addApiKeyToHeader],
