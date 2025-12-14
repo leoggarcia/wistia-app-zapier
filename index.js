@@ -57,7 +57,7 @@ module.exports = {
                 label: 'Wistia API Token',
                 required: true,
                 helpText:
-                    'Your Wistia API token can be found by logging into your Wistia account and navigating to Account > Settings > API Access. You can use your Master Token or create a custom token with appropriate permissions. Keep your token secret! More info: https://wistia.com/support/integrations/api#api_tokens',
+                    'Your Wistia API token can be found by logging into your Wistia account and navigating to Account > Settings > API Home. You can use your Master Token or create a custom token with appropriate permissions. Keep your token secret! More info: https://docs.wistia.com/docs/making-api-requests',
             },
         ],
         test: test,
