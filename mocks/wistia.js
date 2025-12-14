@@ -72,3 +72,18 @@ module.exports.projectListResponse = {
     },
   ],
 };
+
+module.exports.videoListResponse = {
+  data: [
+    {
+      id: 11111111,
+      name: 'First video',
+      status: 'ready',
+    },
+    {
+      id: 22222222,
+      name: 'Second video',
+      status: 'processing',
+    },
+  ],
+};
