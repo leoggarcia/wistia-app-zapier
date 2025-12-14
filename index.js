@@ -1,6 +1,6 @@
 const getVideoUploaded = require('./triggers/video_uploaded');
 
-const createVideo = require("./creates/video");
+const createVideo = require("./creates/upload_video");
 
 const projectResource = require("./resources/project");
 

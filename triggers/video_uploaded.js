@@ -11,7 +11,7 @@ const perform = async (z, bundle) => {
 
 module.exports = {
     key: 'video_uploaded',
-    noun: 'Video_uploaded',
+    noun: 'Video',
 
     display: {
         label: 'New video uploaded',
