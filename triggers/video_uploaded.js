@@ -14,7 +14,7 @@ module.exports = {
     noun: 'Video_uploaded',
 
     display: {
-        label: 'New Video_uploaded',
+        label: 'New video uploaded',
         description: 'Triggers when a new video is uploaded.',
     },
 

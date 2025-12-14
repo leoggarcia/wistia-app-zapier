@@ -1,17 +1,36 @@
 const zapier = require('zapier-platform-core');
-
-// Use this to make test calls into your app:
 const App = require('../../index');
+const { mediaListResponse } = require('../../mocks/wistia');
+
 const appTester = zapier.createAppTester(App);
-// read the `.env` file into the environment, if available
-zapier.tools.env.inject();
 
 describe('triggers.video_uploaded', () => {
-  it('should run', async () => {
-    const bundle = { inputData: {} };
+    it('returns latest uploaded video', async () => {
+        const bundle = {
+            inputData: {},
+            authData: {
+                api_key: 'test-key',
+            },
+        };
 
-    const results = await appTester(App.triggers['video_uploaded'].operation.perform, bundle);
-    expect(results).toBeDefined();
-    // TODO: add more assertions
-  });
+        let requestMock;
+
+        const perform = async (z, bundle) => {
+            requestMock = jest.fn().mockResolvedValue(mediaListResponse);
+            z.request = requestMock;
+
+            return App.triggers.video_uploaded.operation.perform(z, bundle);
+        };
+
+        const results = await appTester(perform, bundle);
+
+        // ✅ ahora sí existe
+        expect(requestMock).toHaveBeenCalledTimes(1);
+        expect(results).toHaveLength(1);
+
+        expect(results[0]).toMatchObject({
+            id: 11111111,
+            name: 'Video name.',
+        });
+    });
 });
